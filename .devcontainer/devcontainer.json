@@ -1,0 +1,25 @@
+{
+	"name": "My DevContainer",
+	"build": {
+	  "dockerfile": "Dockerfile",
+	  "args": {
+		"VARIANT": "ubuntu-20.04"
+	  }
+	},
+	"runArgs": ["--privileged"],
+	"postCreateCommand": "sudo /bin/bash /workspaces/dev-templates/.devcontainer/init.sh",
+	"features": {
+	  "ghcr.io/devcontainers/features/nix:1": {
+		"multiUser": true,
+		"version": "latest"
+	  },
+	  "ghcr.io/devcontainers/features/docker-in-docker:2": {
+		"moby": true,
+		"azureDnsAutoDetection": true,
+		"installDockerBuildx": true,
+		"installDockerComposeSwitch": true,
+		"version": "latest",
+		"dockerDashComposeVersion": "latest"
+	  }
+	}
+  }
